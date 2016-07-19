@@ -15,7 +15,8 @@
     <CodeAnalysisAdditionalOptions>/assemblyCompareMode:StrongNameIgnoringVersion</CodeAnalysisAdditionalOptions>
     <CodeAnalysisRuleSet>..\..\FxCop.ruleset</CodeAnalysisRuleSet>
     <DefineConstants>$(DefineConstants);ASPNETWEBHOOKS</DefineConstants>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -132,9 +133,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SqlStorageResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Storage\IRegistration.cs" />
     <Compile Include="Storage\Registration.cs" />
-    <Compile Include="WebHooks\DbWebHookStore.cs" />
     <Compile Include="WebHooks\WebHookStoreContext.cs" />
     <Compile Include="WebHooks\SqlWebHookStore.cs" />
   </ItemGroup>
@@ -149,12 +148,18 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Microsoft.AspNet.WebHooks.Custom.SqlStorage.nuspec" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.AspNet.WebHooks.Common\Microsoft.AspNet.WebHooks.Common.csproj">
       <Project>{f7dd0935-6320-4efc-9464-d5a2d2b8c2f7}</Project>
       <Name>Microsoft.AspNet.WebHooks.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.AspNet.WebHooks.Custom.Storage\Microsoft.AspNet.WebHooks.Custom.Storage.csproj">
+      <Project>{b096b548-4935-4bb2-90b7-614071525d76}</Project>
+      <Name>Microsoft.AspNet.WebHooks.Custom.Storage</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.AspNet.WebHooks.Custom\Microsoft.AspNet.WebHooks.Custom.csproj">
       <Project>{d4d210c6-3283-4d1d-806e-8717d8f51179}</Project>
